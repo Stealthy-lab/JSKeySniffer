@@ -12,8 +12,8 @@ KeyFinder es una herramienta de seguridad que analiza archivos JavaScript en bus
 
 ### Clonar el repositorio
 ```bash
-git clone https://github.com/tuusuario/KeyFinder.git
-cd KeyFinder
+git clone https://github.com/Stealthy-lab/JSKeySniffer.git
+cd JSKeySniffer
 ```
 
 ### Instalar dependencias
@@ -23,7 +23,7 @@ pip install -r requirements.txt
 
 ### Ejecutar la herramienta
 ```bash
-python3 keyfinder.py
+python3 JSKeySniffer.py
 ```
 
 ## Dependencias
