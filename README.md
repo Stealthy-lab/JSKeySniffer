@@ -1,4 +1,4 @@
-# KeyFinder
+# JSKeySniffer
 
 KeyFinder es una herramienta de seguridad que analiza archivos JavaScript en busca de llaves API públicas y credenciales expuestas. Su objetivo es ayudar a identificar datos sensibles que puedan haber sido expuestos accidentalmente en sitios web.
 
