@@ -45,7 +45,7 @@ pip install requests beautifulsoup4 tabulate pyfiglet termcolor
 
 Ejemplo:
 ```bash
-python3 keyfinder.py
+python3 JSKeySniffer.py
 ```
 Salida esperada:
 ```
