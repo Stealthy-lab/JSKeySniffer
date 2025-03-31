@@ -36,8 +36,7 @@ def analyze_js(content):
             found_data[label] = set(matches)  # Eliminar duplicados
     return found_data if found_data else None
 
-def scan_url():
-    target_url = input(colored("Ingrese la URL objetivo: ", "cyan")).strip()
+def scan_url(target_url):
     js_files = fetch_js_files(target_url)
 
     if not js_files:
@@ -94,17 +93,34 @@ def scan_file():
     except Exception as e:
         print(colored(f"[ERROR] Ocurrió un problema: {e}", "red"))
 
+def scan_from_list():
+    file_path = input(colored("Ingrese la ruta del archivo de targets (.txt): ", "cyan")).strip()
+    try:
+        with open(file_path, "r", encoding="utf-8") as file:
+            targets = file.read().splitlines()
+            for target in targets:
+                print(colored(f"\n🌐 Escaneando {target}...", "blue"))
+                scan_url(target)
+    except FileNotFoundError:
+        print(colored("[ERROR] No se pudo encontrar el archivo de targets.", "red"))
+    except Exception as e:
+        print(colored(f"[ERROR] Ocurrió un problema: {e}", "red"))
+
 def main():
     print(colored(pyfiglet.figlet_format("JSKeySniffer"), "blue"))
     print(colored("Created by Stealthy\n", "cyan"))
     print(colored("Seleccione un modo de escaneo:", "blue"))
     print(colored("1. Escanear por URL", "green"))
     print(colored("2. Escanear un archivo .js local", "green"))
-    choice = input(colored("Ingrese la opción (1/2): ", "cyan")).strip()
+    print(colored("3. Escanear desde un listado de URLs en un .txt", "green"))
+    choice = input(colored("Ingrese la opción (1/2/3): ", "cyan")).strip()
     if choice == "1":
-        scan_url()
+        target_url = input(colored("Ingrese la URL objetivo: ", "cyan")).strip()
+        scan_url(target_url)
     elif choice == "2":
         scan_file()
+    elif choice == "3":
+        scan_from_list()
     else:
         print(colored("[ERROR] Opción no válida.", "red"))
 
